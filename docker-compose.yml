@@ -13,6 +13,14 @@ services:
       - POSTGRESQL_DATABASE=app
     volumes:
       - "postgresql_data:/bitnami/postgresql"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1024M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
